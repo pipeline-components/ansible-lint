@@ -12,6 +12,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 ENV PATH "${PATH}:/app/bin/"
 
+WORKDIR /code/
 # Build arguments
 ARG BUILD_DATE
 ARG BUILD_REF
