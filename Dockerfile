@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.9
 
 WORKDIR /app/
 
@@ -6,7 +6,7 @@ WORKDIR /app/
 COPY app /app/
 
 # Python
-RUN apk add --no-cache python3=3.6.6-r0 py3-paramiko=2.4.1-r0 py3-cryptography=2.1.4-r1
+RUN apk add --no-cache python3=3.6.8-r1 py3-paramiko=2.4.2-r0 py3-cryptography=2.4.2-r2
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
