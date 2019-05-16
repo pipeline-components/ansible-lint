@@ -1,4 +1,4 @@
 ansible-lint==4.1.0
-ansible==2.7.10
+ansible==2.8.0
 Jinja2==2.10.1
 MarkupSafe==1.1.1
