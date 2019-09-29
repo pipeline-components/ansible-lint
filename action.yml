@@ -1,0 +1,23 @@
+---
+name: "ansible-lint"
+description: "ansible-lint by Pipeline Components"
+author: "Robbert Müller <spam.me@grols.ch>"
+branding:
+  icon: "flag"
+  color: "green"
+inputs:
+  directory:
+    description: "Playbooks or roles/tasks to lint"
+    required: false
+    default: "."
+  options:
+    description: "Additional options"
+    required: false
+    default: ""
+runs:
+  using: "docker"
+  image: docker://pipelinecomponents/ansible-lint
+  args:
+    - ansible-lint
+    - "${{ inputs.options }}"
+    - "${{ inputs.directory }}"
