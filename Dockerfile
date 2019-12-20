@@ -12,7 +12,7 @@ WORKDIR /app/
 COPY app /app/
 
 # Python
-RUN apk add --no-cache python3=3.7.5-r1 py3-paramiko=2.4.2-r1 py3-cryptography=2.6.1-r1
+RUN apk add --no-cache python3=3.8.0-r0 py3-paramiko=2.7.1-r0 py3-cryptography=2.8-r1
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
