@@ -1,5 +1,5 @@
 ---
-name: "ansible-lint"
+name: "pipeline-components-ansible-lint"
 description: "ansible-lint by Pipeline Components"
 author: "Robbert Müller <spam.me@grols.ch>"
 branding:
