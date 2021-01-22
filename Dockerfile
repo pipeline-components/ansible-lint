@@ -1,6 +1,6 @@
 FROM pipelinecomponents/base-entrypoint:0.3.0 as entrypoint
 
-FROM alpine:3.12.3
+FROM alpine:3.13.0
 COPY --from=entrypoint /entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ENV DEFAULTCMD ansible-lint
@@ -12,7 +12,7 @@ WORKDIR /app/
 COPY app /app/
 
 # Python
-RUN apk add --no-cache python3=3.8.5-r0 py-pip=20.1.1-r0 py3-paramiko=2.7.1-r0 py3-cryptography=2.9.2-r0
+RUN apk add --no-cache python3=3.8.7-r0 py-pip=20.3.3-r0 py3-paramiko=2.7.2-r0 py3-cryptography=3.3.1-r0
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
