@@ -1,6 +1,6 @@
 FROM pipelinecomponents/base-entrypoint:0.3.0 as entrypoint
 
-FROM alpine:3.13.0
+FROM alpine:3.13.1
 COPY --from=entrypoint /entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ENV DEFAULTCMD ansible-lint
