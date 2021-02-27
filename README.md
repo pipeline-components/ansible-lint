@@ -21,7 +21,7 @@ The image is for running Ansible-lint, The image is based on alpine:3.8
 ```yaml
 ansible-lint:
   stage: linting
-  image: pipelinecomponents/ansible-lint:latest
+  image: registry.gitlab.com/pipeline-components/ansible-lint:latest
   script:
     - ansible-lint .
 ```
