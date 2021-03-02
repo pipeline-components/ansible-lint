@@ -12,7 +12,8 @@ WORKDIR /app/
 COPY app /app/
 
 # Python
-RUN apk add --no-cache python3=3.8.7-r1 py-pip=20.3.4-r0 py3-paramiko=2.7.2-r0 py3-cryptography=3.3.2-r0
+# hadolint ignore=DL3018
+RUN apk add --no-cache python3=3.8.7-r1 py-pip=20.3.4-r0 py3-paramiko=2.7.2-r0 py3-cryptography=3.3.2-r0 git
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
