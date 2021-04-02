@@ -1,26 +1,54 @@
+# ==============================================================================
+# Add https://gitlab.com/pipeline-components/org/base-entrypoint
+# ------------------------------------------------------------------------------
 FROM pipelinecomponents/base-entrypoint:0.4.0 as entrypoint
 
-FROM alpine:3.13.2
+# ==============================================================================
+# Build process
+# ------------------------------------------------------------------------------
+FROM python:3.9.1-alpine3.12 as build
+ENV PYTHONUSERBASE /app
+
+# build dependencies do not need a pin
+# hadolint ignore=DL3018
+RUN apk add --no-cache --virtual .build-deps \
+	gcc \
+	musl-dev \
+    build-base \
+    cargo \
+    libffi-dev \
+    libressl-dev \
+    rust
+
+WORKDIR /app/
+COPY app /app/
+RUN pip install --user --no-cache-dir -r requirements.txt
+
+# ==============================================================================
+# Component specific
+# ------------------------------------------------------------------------------
+FROM python:3.9.1-alpine3.12
+
+# Adding dependencies
+# hadolint ignore=DL3018
+RUN apk add --no-cache git libffi
+
+ENV PATH "$PATH:/app/bin/"
+ENV PYTHONUSERBASE /app
+COPY --from=build /app /app
+
+# ==============================================================================
+# Generic for all components
+# ------------------------------------------------------------------------------
 COPY --from=entrypoint /entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ENV DEFAULTCMD ansible-lint
 
-
-WORKDIR /app/
-
-# Generic
-COPY app /app/
-
-# Python
-# hadolint ignore=DL3018
-RUN apk add --no-cache python3=3.8.7-r1 py-pip=20.3.4-r0 py3-paramiko=2.7.2-r0 py3-cryptography=3.3.2-r0 git
-
-RUN pip3 install --no-cache-dir -r requirements.txt
-
-ENV PATH "${PATH}:/app/bin/"
-
 WORKDIR /code/
-# Build arguments
+
+# ==============================================================================
+# Container meta information
+# ------------------------------------------------------------------------------
 ARG BUILD_DATE
 ARG BUILD_REF
 
