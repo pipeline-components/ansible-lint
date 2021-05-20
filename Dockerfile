@@ -6,7 +6,7 @@ FROM pipelinecomponents/base-entrypoint:0.4.0 as entrypoint
 # ==============================================================================
 # Build process
 # ------------------------------------------------------------------------------
-FROM python:3.9.5-alpine3.12 as build
+FROM python:3.9.5-alpine3.13 as build
 ENV PYTHONUSERBASE /app
 
 # build dependencies do not need a pin
@@ -27,7 +27,7 @@ RUN pip install --user --no-cache-dir -r requirements.txt
 # ==============================================================================
 # Component specific
 # ------------------------------------------------------------------------------
-FROM python:3.9.5-alpine3.12
+FROM python:3.9.5-alpine3.13
 
 # Adding dependencies
 # hadolint ignore=DL3018
