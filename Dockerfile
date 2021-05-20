@@ -9,20 +9,18 @@ FROM pipelinecomponents/base-entrypoint:0.4.0 as entrypoint
 FROM python:3.9.5-alpine3.13 as build
 ENV PYTHONUSERBASE /app
 
-# build dependencies do not need a pin
-# hadolint ignore=DL3018
-RUN apk add --no-cache --virtual .build-deps \
-	gcc \
-	musl-dev \
-    build-base \
-    cargo \
-    libffi-dev \
-    libressl-dev \
-    rust
-
 WORKDIR /app/
 COPY app /app/
-RUN pip install --user --no-cache-dir -r requirements.txt
+
+# Adding dependencies
+# hadolint ignore=DL3018
+RUN apk add --no-cache libxslt
+
+# sub dependencies preinstalling from home-assistant
+# hadolint ignore=DL3013
+RUN pip3 install --user --no-cache-dir --only-binary :all: --find-links https://wheels.home-assistant.io/alpine-3.13/amd64/ cryptography lxml
+
+RUN pip3 install --user --no-cache-dir -r requirements.txt
 
 # ==============================================================================
 # Component specific
@@ -31,7 +29,7 @@ FROM python:3.9.5-alpine3.13
 
 # Adding dependencies
 # hadolint ignore=DL3018
-RUN apk add --no-cache git libffi
+RUN apk add --no-cache git libffi libxml2 libxslt
 
 ENV PATH "$PATH:/app/bin/"
 ENV PYTHONUSERBASE /app
