@@ -23,7 +23,21 @@ ansible-lint:
   stage: linting
   image: registry.gitlab.com/pipeline-components/ansible-lint:latest
   script:
-    - ansible-lint .
+    - ansible-lint --show-relpath .
+```
+
+For using Junit reporting in gitlab:
+```yaml
+ansible-lint:
+  stage: linting
+  image: registry.gitlab.com/pipeline-components/ansible-lint:latest
+  artifacts:
+    when: always
+    reports:
+      junit: ansible-lint.xml
+  script:
+    - ansible-lint -v --show-relpath --parseable-severity --nocolor .
+      | ansible-lint-junit -o ansible-lint.xml
 ```
 
 ## Versioning
