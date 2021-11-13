@@ -1,7 +1,7 @@
 # ==============================================================================
 # Add https://gitlab.com/pipeline-components/org/base-entrypoint
 # ------------------------------------------------------------------------------
-FROM pipelinecomponents/base-entrypoint:0.4.0 as entrypoint
+FROM pipelinecomponents/base-entrypoint:0.5.0 as entrypoint
 
 # ==============================================================================
 # Build process
