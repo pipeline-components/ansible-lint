@@ -1,5 +1,5 @@
 ansible-lint==5.1.3
-ansible==5.2.0
+ansible==5.4.0
 Jinja2==3.0.3
 MarkupSafe==2.0.1
 ansible-lint-junit==0.16
