@@ -15,7 +15,7 @@ COPY app /app/
 
 # Adding dependencies
 # hadolint ignore=DL3018
-RUN apk add --no-cache libxslt libxml2 libffi
+RUN apk add --no-cache libxslt libxml2 libffi-dev build-base
 
 # hadolint ignore=DL3013
 RUN pip3 install --user --no-cache-dir --only-binary :all: \
