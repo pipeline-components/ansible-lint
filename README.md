@@ -36,7 +36,7 @@ ansible-lint:
     reports:
       junit: ansible-lint.xml
   script:
-    - ansible-lint -v --show-relpath --parseable-severity --nocolor .
+    - ansible-lint -v --show-relpath -f pep8 --nocolor
       | ansible-lint-junit -o ansible-lint.xml
 ```
 
