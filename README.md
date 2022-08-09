@@ -14,7 +14,7 @@
 
 ## Usage
 
-The image is for running Ansible-lint, The image is based on alpine:3.8
+The image is for running Ansible-lint, The image is based on alpine:3.14.
 
 ## Examples
 
