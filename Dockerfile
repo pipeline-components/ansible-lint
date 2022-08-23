@@ -21,7 +21,9 @@ RUN apk add --no-cache libxslt libxml2 libffi-dev build-base
 RUN pip3 install --user --no-cache-dir --only-binary :all: \
         --find-links https://wheels.home-assistant.io/musllinux/ \
         cryptography lxml ;\
-    pip3 install --user --no-cache-dir --prefer-binary -r requirements.txt
+    pip3 install --user --no-cache-dir --prefer-binary \
+        --find-links https://wheels.home-assistant.io/musllinux/ \
+	-r requirements.txt
 
 # ==============================================================================
 # Component specific
