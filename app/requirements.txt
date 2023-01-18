@@ -3,3 +3,4 @@ ansible==6.7.0
 Jinja2==3.1.2
 MarkupSafe==2.1.1
 ansible-lint-junit==0.17.7
+jmespath==1.0.1
