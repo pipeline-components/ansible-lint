@@ -21,7 +21,16 @@ ansible-lint:
   stage: linting
   image: registry.gitlab.com/pipeline-components/ansible-lint:latest
   script:
-    - ansible-lint --show-relpath .
+    - ansible-lint --show-relpath
+```
+
+if your ansible setup is in a subfolder of the git repository, use for example
+```yaml
+ansible-lint:
+  stage: linting
+  image: registry.gitlab.com/pipeline-components/ansible-lint:latest
+  script:
+    - ansible-lint --show-relpath my-ansible/folder
 ```
 
 For using Junit reporting in gitlab:
