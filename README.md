@@ -47,6 +47,22 @@ ansible-lint:
       | ansible-lint-junit -o ansible-lint.xml
 ```
 
+Display Results in the Code Quality section of Gitlab MRs (but also show the results in the console output):
+```yaml
+ansible-lint:
+  stage: linting
+  image: registry.gitlab.com/pipeline-components/ansible-lint:latest
+  script:
+    - ansible-lint -f codeclimate | python -m json.tool | tee "${CI_PROJECT_DIR}/codeclimate-results.json"
+  artifacts:
+    name: "$CI_JOB_NAME artifacts from $CI_PROJECT_NAME on $CI_COMMIT_REF_SLUG"
+    reports:
+      codequality:
+        - "${CI_PROJECT_DIR}/codeclimate-results.json"
+    paths:
+      - "${CI_PROJECT_DIR}/codeclimate-results.json"
+```
+
 ## Versioning
 
 This project uses [Semantic Versioning][semver] for its version numbering.
