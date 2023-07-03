@@ -118,21 +118,21 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[commits]: https://gitlab.com/pipeline-components/Ansible-lint/-/commits/master
-[contributors]: https://gitlab.com/pipeline-components/Ansible-lint/-/graphs/master
-[dockerhub]: https://hub.docker.com/r/pipelinecomponents/Ansible-lint
+[commits]: https://gitlab.com/pipeline-components/ansible-lint/-/commits/master
+[contributors]: https://gitlab.com/pipeline-components/ansible-lint/-/graphs/master
+[dockerhub]: https://hub.docker.com/r/pipelinecomponents/ansible-lint
 [license-shield]: https://img.shields.io/badge/License-MIT-green.svg
 [mjrider]: https://gitlab.com/mjrider
 [discord]: https://discord.gg/vhxWFfP
-[gitlabci-shield]: https://img.shields.io/gitlab/pipeline/pipeline-components/Ansible-lint.svg
-[gitlabci]: https://gitlab.com/pipeline-components/Ansible-lint/-/commits/master
-[issue]: https://gitlab.com/pipeline-components/Ansible-lint/issues
+[gitlabci-shield]: https://img.shields.io/gitlab/pipeline/pipeline-components/ansible-lint.svg
+[gitlabci]: https://gitlab.com/pipeline-components/ansible-lint/-/commits/master
+[issue]: https://gitlab.com/pipeline-components/ansible-lint/issues
 [keepchangelog]: http://keepachangelog.com/en/1.0.0/
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2023.svg
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
-[pulls-shield]: https://img.shields.io/docker/pulls/pipelinecomponents/Ansible-lint.svg
-[releases]: https://gitlab.com/pipeline-components/Ansible-lint/tags
-[repository]: https://gitlab.com/pipeline-components/Ansible-lint
+[pulls-shield]: https://img.shields.io/docker/pulls/pipelinecomponents/ansible-lint.svg
+[releases]: https://gitlab.com/pipeline-components/ansible-lint/tags
+[repository]: https://gitlab.com/pipeline-components/ansible-lint
 [semver]: http://semver.org/spec/v2.0.0.html
 
 [frenck]: https://github.com/frenck
