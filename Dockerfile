@@ -8,7 +8,7 @@ FROM pipelinecomponents/base-entrypoint:0.5.0 as entrypoint
 # ------------------------------------------------------------------------------
 FROM python:3.12.4-alpine3.19 as build
 ENV PYTHONUSERBASE /app
-ENV PATH "$PATH:/app/bin/"
+ENV PATH "$PATH:/app/bin"
 
 WORKDIR /app/
 COPY app /app/
@@ -34,7 +34,7 @@ FROM python:3.12.4-alpine3.19
 # hadolint ignore=DL3018
 RUN apk add --no-cache git libffi libxml2 libxslt
 
-ENV PATH "$PATH:/app/bin/"
+ENV PATH "$PATH:/app/bin"
 ENV PYTHONUSERBASE /app
 COPY --from=build /app /app
 
