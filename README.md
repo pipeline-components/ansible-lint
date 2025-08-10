@@ -13,7 +13,7 @@
 
 ## Usage
 
-The image is for running Ansible-lint, The image is based on alpine:3.16.
+The image is for running Ansible-lint.
 
 ## Examples
 
