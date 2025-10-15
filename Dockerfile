@@ -6,7 +6,7 @@ FROM pipelinecomponents/base-entrypoint:0.5.0 as entrypoint
 # ==============================================================================
 # Build process
 # ------------------------------------------------------------------------------
-FROM python:3.13.8-alpine3.22 as build
+FROM python:3.13.9-alpine3.22 as build
 ENV PYTHONUSERBASE /app
 ENV PATH "$PATH:/app/bin"
 
@@ -28,7 +28,7 @@ RUN pip3 install --user --no-cache-dir --only-binary :all: \
 # ==============================================================================
 # Component specific
 # ------------------------------------------------------------------------------
-FROM python:3.13.8-alpine3.22
+FROM python:3.13.9-alpine3.22
 
 # Adding dependencies
 # hadolint ignore=DL3018
